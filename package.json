@@ -15,6 +15,7 @@
   "author": "le.zheng <le.zheng@ef.com>",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.215.1",
     "express": "^4.16.3",
     "winston": "^2.4.1"
   },

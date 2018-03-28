@@ -8,4 +8,10 @@ app.get("/health", (req, res) =>
   }),
 );
 
+app.get("/messages", (req, res) =>
+  res.status(200).json({
+    message: "I exist!",
+  }),
+);
+
 export { app };
