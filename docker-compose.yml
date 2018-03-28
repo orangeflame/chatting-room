@@ -5,5 +5,8 @@ services:
     build: .
     volumes:
       - .:/opt/app
+      - yarn-cache:/opt/.yarn-cache
     ports:
       - '8080:8080'
+volumes:
+  yarn-cache:
