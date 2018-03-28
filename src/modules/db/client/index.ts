@@ -1,3 +1,3 @@
 import { doc, raw } from "./client";
 
-export { doc, raw };
+export const client = { doc, raw };
