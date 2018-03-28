@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-immutable", "tslint-config-prettier"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "ordered-imports": {
+      "options": {
+        "import-sources-order": "case-insensitive",
+        "module-source-path": "full",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true
+      }
+    },
+    "prettier": [true, "."],
+    "curly": [true, "ignore-same-line"],
+    "interface-name": [true, "never-prefix"],
+    "no-unused-variable": true,
+    "variable-name": [true, "check-format", "allow-leading-underscore", "allow-pascal-case"]
+  },
+  "linterOptions": {
+    "exclude": ["src/generated/*"]
+  }
+}
