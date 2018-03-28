@@ -2,6 +2,10 @@
   "name": "chatting-room",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node src",
+    "build": "yarn"
+  },
   "repository": "git@github.com:orangeflame/chatting-room.git",
   "author": "le.zheng <le.zheng@ef.com>",
   "license": "MIT",
