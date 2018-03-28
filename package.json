@@ -4,12 +4,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node src",
-    "build": "yarn"
+    "build": "yarn",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md}\""
   },
   "repository": "git@github.com:orangeflame/chatting-room.git",
   "author": "le.zheng <le.zheng@ef.com>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "prettier": "^1.11.1"
   }
 }
