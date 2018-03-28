@@ -12,21 +12,16 @@
 
 > The [app](http://localhost:8080/health) should has been started.
 
-## Ignore following part, it is just a quick note
-production:
+## how to ship to production
+> compile typescript code into dist
 
-build
+    yarn build
 
-docker build -t chatting-room -f production.Dockerfile .
+> build the docker image with the compiled code in dist via production.Dockerfile
+    
+    docker build -t chatting-room -f production.Dockerfile .
 
-run
+> test the image locally
 
-docker run --rm -p 8080:8080 chatting-room
+    docker run --rm -p 8080:8080 chatting-room   
 
-CI
-
-yarn build
-docker build
-
-Local 
-run yarn dev
