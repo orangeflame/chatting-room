@@ -1,1 +1,1 @@
-export { controller } from "./controller";
+export { mount } from "./mount";

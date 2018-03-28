@@ -1,11 +1,10 @@
 import * as express from "express";
 
 import { db, setup, tables } from "./modules/db";
-import { controller } from "./modules/health";
+import { mount as mountHealth } from "./modules/health";
 
 const app = express();
-
-app.get("/health", controller);
+mountHealth(app);
 
 app.get("/messages", async (req, res) => {
   await setup();
