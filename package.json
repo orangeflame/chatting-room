@@ -6,6 +6,7 @@
     "start": "ts-node src",
     "build": "yarn",
     "dev": "nodemon",
+    "test": "jest",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md}\""
   },
   "repository": "git@github.com:orangeflame/chatting-room.git",
@@ -17,8 +18,35 @@
     "typescript": "^2.8.1"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.2",
     "prettier": "^1.11.1",
+    "ts-jest": "^22.4.2",
     "ts-node": "^5.0.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jest/mocks.ts"
+    ],
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      ".d.ts"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }
