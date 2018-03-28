@@ -12,7 +12,7 @@
 
 > The [app](http://localhost:8080/health) should has been started.
 
-## how to ship to production
+## How to ship to production
 > compile typescript code into dist
 
     yarn build
