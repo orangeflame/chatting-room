@@ -12,3 +12,6 @@ CI
 
 yarn build
 docker build
+
+Local 
+run yarn dev
