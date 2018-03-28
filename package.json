@@ -12,10 +12,13 @@
   "author": "le.zheng <le.zheng@ef.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3"
+    "@types/express": "^4.11.1",
+    "express": "^4.16.3",
+    "typescript": "^2.8.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.2",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "ts-node": "^5.0.1"
   }
 }
