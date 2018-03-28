@@ -1,7 +1,7 @@
 import * as express from "express";
 
-import { db, setup, tables } from "./modules/db";
-import { mount as mountHealth } from "./modules/health";
+import { db, setup, tables } from "modules/db";
+import { mount as mountHealth } from "modules/health";
 
 const app = express();
 mountHealth(app);
