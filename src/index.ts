@@ -1,6 +1,8 @@
 import { app } from "./app";
 import { logger } from "./logger";
 
-app.listen(8080, () => {
+const { PORT = 8080 } = process.env;
+
+app.listen(PORT, () => {
   logger.info("dega");
 });
