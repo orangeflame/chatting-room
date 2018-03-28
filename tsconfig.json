@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "lib": ["es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
     "preserveConstEnums": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es5",
     "typeRoots": ["./node_modules/@types"]
-  }
+  },
+  "include": ["src/**/*"]
 }
