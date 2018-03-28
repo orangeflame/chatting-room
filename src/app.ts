@@ -1,8 +1,6 @@
 import * as express from "express";
 
-import { client } from "./modules/db/client";
-import { setup } from "./modules/db/setup";
-import { tables } from "./modules/db/tables";
+import { db, setup, tables } from "./modules/db";
 
 const app = express();
 
@@ -14,7 +12,7 @@ app.get("/health", (req, res) =>
 
 app.get("/messages", async (req, res) => {
   await setup();
-  const data = await client.doc.scan({ TableName: tables.messages }).promise();
+  const data = await db.doc.scan({ TableName: tables.messages }).promise();
   res.status(200).json({
     message: data,
   });
