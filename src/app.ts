@@ -1,14 +1,11 @@
 import * as express from "express";
 
 import { db, setup, tables } from "./modules/db";
+import { controller } from "./modules/health";
 
 const app = express();
 
-app.get("/health", (req, res) =>
-  res.status(200).json({
-    message: "All is superme well",
-  }),
-);
+app.get("/health", controller);
 
 app.get("/messages", async (req, res) => {
   await setup();
