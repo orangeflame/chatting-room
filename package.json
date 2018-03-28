@@ -1,0 +1,11 @@
+{
+  "name": "chatting-room",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:orangeflame/chatting-room.git",
+  "author": "le.zheng <le.zheng@ef.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
