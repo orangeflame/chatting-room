@@ -25,3 +25,13 @@
 
     docker run --rm -p 8080:8080 chatting-room   
 
+## How to run tests
+
+> run the tests
+
+    yarn test
+
+> generate coverage report
+
+    yarn test --coverage    
+
