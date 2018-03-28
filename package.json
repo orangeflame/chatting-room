@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src",
+    "start": "ts-node src",
     "build": "yarn",
     "dev": "nodemon",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md}\""
