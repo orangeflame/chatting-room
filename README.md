@@ -33,5 +33,16 @@
 
 > generate coverage report
 
-    yarn test --coverage    
+    yarn test --coverage
+
+## Techinical Overview
+
+### Editor Config
+
+> make all developper have the same editor setting which includs indent, end_of_line, charset, insert_final_newline 
+> [.editorconfig](https://github.com/orangeflame/chatting-room/blob/master/.editorconfig)
+
+### Docker
+
+> [Dockfile](https://github.com/orangeflame/chatting-room/blob/master/Dockerfile) and [docker-compose.yal](https://github.com/orangeflame/chatting-room/blob/master/docker-compose.yml) is for dev, [production.Dockerfile](https://github.com/orangeflame/chatting-room/blob/master/production.Dockerfile) is for QA, Staging and Live.
 
