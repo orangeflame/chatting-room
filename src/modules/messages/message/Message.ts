@@ -5,4 +5,5 @@ export interface Message {
   message: string;
   sentAt: DateTime;
   receivedByServerAt: DateTime;
+  userId: string;
 }

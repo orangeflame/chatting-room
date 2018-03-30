@@ -3,4 +3,5 @@ export interface SerializeMessage {
   message: string;
   sentAt: string;
   receivedByServerAt: string;
+  userId: string;
 }
