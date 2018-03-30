@@ -4,6 +4,7 @@ import * as shortid from "shortid";
 import { createController } from "modules/core";
 import { db, tables } from "modules/db";
 
+import { allFromDb } from "./allFromDb";
 import { isSignupRequest } from "./isSignupRequest";
 
 export const controller = createController(async (req, res) => {
@@ -15,12 +16,8 @@ export const controller = createController(async (req, res) => {
     ...req.body,
   };
 
-  const { Items: users } = await db.doc
-    .scan({
-      TableName: tables.users,
-    })
-    .promise();
-  const foundUser = users!.find((it) => it.username === req.body.username);
+  const users = await allFromDb();
+  const foundUser = users.find((it) => it.username === req.body.username);
   if (foundUser) {
     return res.status(BAD_REQUEST).send(`The ${req.body.username} already exists`);
   }
