@@ -13,6 +13,14 @@ export const controller = createController(async (req, res) => {
     return res.status(BAD_REQUEST).send("Bad request");
   }
   logger.info(req.body);
-  const data = await db.doc.scan({ TableName: tables.messages }).promise();
+  const data = await db.doc
+    .put({
+      Item: {
+        id: "1",
+        ...req.body,
+      },
+      TableName: tables.messages,
+    })
+    .promise();
   res.status(OK).json(data);
 });
