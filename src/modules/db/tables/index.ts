@@ -1,5 +1,6 @@
 import { prefix } from "./prefex";
 
 export const tables = {
-  messages: `${prefix}-message`,
+  messages: `${prefix}-messages`,
+  users: `${prefix}-users`,
 };
