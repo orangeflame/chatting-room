@@ -13,7 +13,6 @@ export const appSetup = async () => {
   await setupDB();
   const app = express();
   app.use(bodyPaser.json());
-  app.use(passport.initialize());
   mountHealth(app);
   mountUsers(app);
   setupAuthenication(app);
