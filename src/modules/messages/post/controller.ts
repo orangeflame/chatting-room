@@ -5,6 +5,7 @@ import { logger } from "modules/core";
 import { createController } from "modules/core";
 import { db, tables } from "modules/db";
 
+import { createMessage } from "./createMessage";
 import { isMessageRequest } from "./isMessageRequest";
 import { MessageRequest } from "./types";
 
@@ -13,15 +14,12 @@ export const controller = createController(async (req, res) => {
   if (!isMessageRequest(body)) {
     return res.status(BAD_REQUEST).send("Bad request");
   }
-  logger.info(req.body);
+  const message = createMessage(req.body);
   const data = await db.doc
     .put({
-      Item: {
-        id: shortid.generate(),
-        ...req.body,
-      },
+      Item: message,
       TableName: tables.messages,
     })
     .promise();
-  res.status(OK).json(data);
+  res.status(OK).json(message);
 });
