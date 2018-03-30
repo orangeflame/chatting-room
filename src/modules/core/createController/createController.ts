@@ -1,3 +1,5 @@
+import { INTERNAL_SERVER_ERROR } from "http-status-codes";
+
 import { RequestHandler } from "express";
 
 import { logger } from "../logger";
@@ -8,7 +10,7 @@ export function createController(controller: RequestHandler): RequestHandler {
       return await controller(req, res, next);
     } catch (e) {
       logger.error("Controller has crashed:", e);
-      res.status(500).send("Internal Server Error");
+      res.status(INTERNAL_SERVER_ERROR).send("Internal Server Error");
     }
   };
 
