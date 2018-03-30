@@ -1,7 +1,5 @@
 import * as bodyPaser from "body-parser";
 import * as express from "express";
-import * as passport from "passport";
-import { BasicStrategy } from "passport-http";
 
 import { setup as setupAuthenication } from "modules/authenication";
 import { setup as setupDB } from "modules/db";
