@@ -1,4 +1,5 @@
 import { BAD_REQUEST, OK } from "http-status-codes";
+import * as shortid from "shortid";
 
 import { logger } from "modules/core";
 import { createController } from "modules/core";
@@ -16,7 +17,7 @@ export const controller = createController(async (req, res) => {
   const data = await db.doc
     .put({
       Item: {
-        id: "1",
+        id: shortid.generate(),
         ...req.body,
       },
       TableName: tables.messages,
