@@ -1,8 +1,8 @@
 import { Express } from "express";
 
-import { controller } from "./controller";
+import { controller as getController } from "./get";
 import { ROUTE } from "./route";
 
 export const mount = (app: Express) => {
-  app.get(ROUTE, controller);
+  app.get(ROUTE, getController);
 };
