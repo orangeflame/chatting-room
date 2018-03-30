@@ -3,13 +3,15 @@ import * as express from "express";
 import * as passport from "passport";
 import { BasicStrategy } from "passport-http";
 
-import { setup } from "modules/db";
+import { setup as setupAuthenication } from "modules/authenication";
+import { setup as setupDB } from "modules/db";
 import { mount as mountHealth } from "modules/health";
 import { mount as mountMessage } from "modules/messages";
 
 export const appSetup = async () => {
-  await setup();
   const app = express();
+  await setupDB();
+  await setupAuthenication(app);
   app.use(bodyPaser.json());
   app.use(passport.initialize());
 
