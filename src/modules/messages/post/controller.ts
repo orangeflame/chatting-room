@@ -5,6 +5,8 @@ import { logger } from "modules/core";
 import { createController } from "modules/core";
 import { db, tables } from "modules/db";
 
+import { serialize } from "../message";
+
 import { createMessage } from "./createMessage";
 import { isMessageRequest } from "./isMessageRequest";
 import { MessageRequest } from "./types";
@@ -14,7 +16,7 @@ export const controller = createController(async (req, res) => {
   if (!isMessageRequest(body)) {
     return res.status(BAD_REQUEST).send("Bad request");
   }
-  const message = createMessage(req.body);
+  const message = serialize(createMessage(req.body));
   const data = await db.doc
     .put({
       Item: message,
