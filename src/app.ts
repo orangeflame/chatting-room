@@ -7,24 +7,16 @@ import { setup as setupAuthenication } from "modules/authenication";
 import { setup as setupDB } from "modules/db";
 import { mount as mountHealth } from "modules/health";
 import { mount as mountMessage } from "modules/messages";
+import { mount as mountUsers } from "modules/users";
 
 export const appSetup = async () => {
+  await setupDB();
   const app = express();
   app.use(bodyPaser.json());
   app.use(passport.initialize());
   mountHealth(app);
-  await setupDB();
-  await setupAuthenication(app);
-
-  passport.use(
-    new BasicStrategy((username, password, done) => {
-      if (username === "le" && password === "le") {
-        return done(null, {});
-      }
-      return done(null, false);
-    }),
-  );
-
+  mountUsers(app);
+  setupAuthenication(app);
   mountMessage(app);
   return app;
 };
