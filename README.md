@@ -44,5 +44,14 @@
 
 ### Docker
 
-> [Dockfile](https://github.com/orangeflame/chatting-room/blob/master/Dockerfile) and [docker-compose.yal](https://github.com/orangeflame/chatting-room/blob/master/docker-compose.yml) is for dev, [production.Dockerfile](https://github.com/orangeflame/chatting-room/blob/master/production.Dockerfile) is for QA, Staging and Live.
+> [Dockfile](https://github.com/orangeflame/chatting-room/blob/master/Dockerfile) and [docker-compose.yml](https://github.com/orangeflame/chatting-room/blob/master/docker-compose.yml) is for dev, [production.Dockerfile](https://github.com/orangeflame/chatting-room/blob/master/production.Dockerfile) is for QA, Staging and Live.
+
+### Nodemon
+
+> A monitor for any changes in your source and automatically restart your server, perfect for you dev environment. This project's [setting](https://github.com/orangeflame/chatting-room/blob/master/nodemon.json) is watching the `.ts` and `.json` and exec `tsnode`
+
+### ts-nonde
+
+> Execute TypeScript files **directly** with node, **both nodemon and ts-node* is used for dev**.
+
 
