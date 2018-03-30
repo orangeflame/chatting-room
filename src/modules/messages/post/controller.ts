@@ -1,7 +1,5 @@
 import { BAD_REQUEST, OK } from "http-status-codes";
-import * as shortid from "shortid";
 
-import { logger } from "modules/core";
 import { createController } from "modules/core";
 import { db, tables } from "modules/db";
 
@@ -17,7 +15,7 @@ export const controller = createController(async (req, res) => {
     return res.status(BAD_REQUEST).send("Bad request");
   }
   const message = serialize(createMessage(req.body));
-  const data = await db.doc
+  await db.doc
     .put({
       Item: message,
       TableName: tables.messages,
