@@ -14,6 +14,16 @@ export const controller = createController(async (req, res) => {
     id: shortid.generate(),
     ...req.body,
   };
+
+  const { Items: users } = await db.doc
+    .scan({
+      TableName: tables.users,
+    })
+    .promise();
+  const foundUser = users!.find((it) => it.username === req.body.username);
+  if (foundUser) {
+    return res.status(BAD_REQUEST).send(`The ${req.body.username} already exists`);
+  }
   await db.doc
     .put({
       Item: user,
