@@ -1,6 +1,9 @@
 import { Express } from "express";
 import * as passport from "passport";
+
 import { BasicStrategy } from "passport-http";
+
+import { authenicate } from "modules/authenication";
 
 export const setup = (app: Express) => {
   app.use(passport.initialize());
@@ -12,4 +15,5 @@ export const setup = (app: Express) => {
       return done(null, false);
     }),
   );
+  app.use(authenicate());
 };

@@ -8,6 +8,6 @@ import { controller as postController } from "./post";
 import { ROUTE } from "./route";
 
 export const mount = (app: Express) => {
-  app.get(ROUTE, authenicate(), getController);
-  app.post(ROUTE, authenicate(), postController);
+  app.get(ROUTE, getController);
+  app.post(ROUTE, postController);
 };

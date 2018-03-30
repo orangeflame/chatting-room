@@ -10,10 +10,11 @@ import { mount as mountMessage } from "modules/messages";
 
 export const appSetup = async () => {
   const app = express();
-  await setupDB();
-  await setupAuthenication(app);
   app.use(bodyPaser.json());
   app.use(passport.initialize());
+  mountHealth(app);
+  await setupDB();
+  await setupAuthenication(app);
 
   passport.use(
     new BasicStrategy((username, password, done) => {
@@ -23,7 +24,7 @@ export const appSetup = async () => {
       return done(null, false);
     }),
   );
-  mountHealth(app);
+
   mountMessage(app);
   return app;
 };
