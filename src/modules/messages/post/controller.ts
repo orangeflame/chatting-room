@@ -14,7 +14,10 @@ export const controller = createController(async (req, res) => {
   if (!isMessageRequest(body)) {
     return res.status(BAD_REQUEST).send("Bad request");
   }
-  const message = serialize(createMessage(req.body, req.user!.id));
+  if (!req.user) {
+    return res.status(BAD_REQUEST).send("No user id info");
+  }
+  const message = serialize(createMessage(req.body, req.user.id));
   await db.doc
     .put({
       Item: message,
