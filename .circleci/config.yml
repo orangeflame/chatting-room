@@ -33,6 +33,8 @@ jobs:
           name: Build
           command: yarn clean && yarn build
 
+      - setup_remote_docker
+
       - run:
           name: Build docker image
           command: docker build -t $AWS_ECR_URI:$CIRCLE_SHA1 -f production.Dockerfile .
