@@ -31,6 +31,10 @@ jobs:
             sudo pip install awscli --upgrade
 
       - run:
+          name: Install ecs-deploy
+          command: sudo npm install -g ecs-deploy
+
+      - run:
           name: Runing unit tests
           command: yarn test --ci --testResultsProcessor="jest-junit"
           environment:
@@ -55,3 +59,8 @@ jobs:
             mkdir ~/.aws && echo -e "[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY\n" > ~/.aws/credentials
             DOCKER_LOGIN=`aws ecr get-login --no-include-email --region us-east-1` && $DOCKER_LOGIN
             docker push $AWS_ECR_URI:$CIRCLE_SHA1
+
+      - run:
+          name: Deploy image
+          command: REGION=us-east-1 CLUSTER=js-workshop SERVICE=js-workshop-le-ui CONTAINER=app IMAGE=$AWS_ECR_URI IMAGE_TAG=$CIRCLE_SHA1 ecs-deploy
+
