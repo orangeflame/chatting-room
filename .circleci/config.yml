@@ -20,7 +20,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test
       - run:
           name: Runing unit tests
           command: yarn test --ci --testResultsProcessor="jest-junit"
@@ -33,3 +32,7 @@ jobs:
       - run:
           name: Build
           command: yarn clean && yarn build
+
+      - run:
+          name: Build docker image
+          command: docker build -t $AWS_ECR_URI:$CIRCLE_SHA1 -f production.Dockerfile .
