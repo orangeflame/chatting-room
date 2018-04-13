@@ -35,6 +35,7 @@
     "@types/supertest": "^2.0.4",
     "@types/winston": "^2.3.8",
     "jest": "^22.4.3",
+    "jest-junit": "^3.6.0",
     "nodemon": "^1.17.2",
     "prettier": "^1.11.1",
     "rimraf": "^2.6.2",
