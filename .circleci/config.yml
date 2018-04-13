@@ -62,5 +62,5 @@ jobs:
 
       - run:
           name: Deploy image
-          command: REGION=us-east-1 CLUSTER=js-workshop-le SERVICE=js-workshop-le-api CONTAINER=app IMAGE=$AWS_ECR_URI IMAGE_TAG=$CIRCLE_SHA1 ecs-deploy
+          command: REGION=us-east-1 CLUSTER=js-workshop SERVICE=js-workshop-le-api CONTAINER=app IMAGE=$AWS_ECR_URI IMAGE_TAG=$CIRCLE_SHA1 ecs-deploy
 
