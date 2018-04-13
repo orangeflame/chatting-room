@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import * as shortid from "shortid";
 
-import { Message } from "../Message";
+import { Message } from "../message";
 
 import { MessageRequest } from "./types";
 
