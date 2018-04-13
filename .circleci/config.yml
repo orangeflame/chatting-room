@@ -21,6 +21,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Install AWS CLI
+              working_directory: ~
+              command: |
+                sudo apt-get -y -qq update
+                sudo apt-get -y -qq install python3.4-dev
+                curl -O https://bootstrap.pypa.io/get-pip.py
+                sudo python3.4 get-pip.py
+                sudo pip install awscli --upgrade
+
+      - run:
           name: Runing unit tests
           command: yarn test --ci --testResultsProcessor="jest-junit"
           environment:
@@ -38,3 +48,10 @@ jobs:
       - run:
           name: Build docker image
           command: docker build -t $AWS_ECR_URI:$CIRCLE_SHA1 -f production.Dockerfile .
+
+      - run:
+          name: Push to ECR
+          command:
+            mkdir ~/.aws && echo -e "[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY\n" > ~/.aws/credentials
+            DOCKER_LOGIN=`aws ecr get-login --no-include-email --region us-east-1` && $DOCKER_LOGIN
+            docker push $AWS_ECR_URI:$CIRCLE_SHA1
