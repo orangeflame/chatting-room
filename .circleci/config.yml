@@ -28,7 +28,7 @@ jobs:
             JEST_JUNIT_OUTPUT: "test-results/Jest/js-test-results.xml"
 
       - store_test_results:
-        path: test-results
+          path: test-results
 
       - run:
           name: Build
