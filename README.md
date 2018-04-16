@@ -52,8 +52,8 @@
 
 > A monitor for any changes in your source and automatically restart your server, perfect for you dev environment. This project's [setting](https://github.com/orangeflame/chatting-room/blob/master/nodemon.json) is watching the `.ts` and `.json` and exec `tsnode`
 
-### ts-nonde
+### ts-node
 
-> Execute TypeScript files **directly** with node, **both nodemon and ts-node* is used for dev**.
+> Execute TypeScript files **directly** with node, both nodemon and ts-node is used for **dev**.
 
 
