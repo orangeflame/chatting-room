@@ -1,5 +1,4 @@
-export interface User {
-  id: string;
+export interface SignUpRequest {
   username: string;
   password: string;
 }

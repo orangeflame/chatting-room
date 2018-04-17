@@ -4,11 +4,12 @@ import * as shortid from "shortid";
 import { createController } from "modules/core";
 import { db, tables } from "modules/db";
 
-import { allFromDb } from "./allFromDb";
-import { isSignupRequest } from "./isSignupRequest";
+import { allFromDb } from "../allFromDb";
+
+import { isSignUpRequest } from "./isSignUpRequest";
 
 export const controller = createController(async (req, res) => {
-  if (!isSignupRequest(req.body)) {
+  if (!isSignUpRequest(req.body)) {
     return res.status(BAD_REQUEST).send("Bad request");
   }
   const user = {

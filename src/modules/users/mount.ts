@@ -1,8 +1,7 @@
 import { Express } from "express";
 
-import { controller } from "./controller";
-import { ROUTE } from "./route";
+import { controller, ROUTE as signUp } from "./sign-up";
 
 export const mount = (app: Express) => {
-  app.post(ROUTE, controller);
+  app.post(signUp, controller);
 };
